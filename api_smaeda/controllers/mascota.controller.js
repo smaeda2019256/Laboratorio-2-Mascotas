@@ -16,11 +16,32 @@ const mascotasGet = async (req, res = response) => {
         total, 
         mascotas
     });
+}
 
+const getMascotaById = async (req, res) => {
+    const { id } = req.params;
+    const mascota = await Mascota.findOne({ _id: id});
 
+    res.status(200).json({
+        mascota
+    });
+}
+
+const putMascotas =  async (req, res = response) =>{
+    const { id } = req.params;
+    const { _id, ...resto } = req.body;
+
+    const mascota = await Mascota.findByIdAndUpdate(id, resto);
+
+    res.status(200).json({
+        msg: 'Mascota Actualizada Exitosamente!',
+        mascota
+    });
 }
 
 module.exports = {
-    mascotasGet
+    mascotasGet,
+    getMascotaById,
+    putMascotas
 }
 

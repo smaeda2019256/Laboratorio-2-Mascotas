@@ -10,7 +10,6 @@ const existenteEmail = async (correo = '') => {
 
 }
 
-
 const existeUsuarioId = async (id='') => {
     const existeUsuario = await Usuario.findOne({id});
 

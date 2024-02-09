@@ -45,7 +45,7 @@ const mascotasDelete = async (req, res) => {
 
     res.status(200).json({
         msg: 'Mascota Eliminada Exitosamente!',
-        animal
+        mascota
     });
 }
 

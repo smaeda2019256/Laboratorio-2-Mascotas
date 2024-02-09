@@ -1,0 +1,75 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Mascotas",
+    "dateExported": "2024-02-09T17:11:58.611Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "be8ce742-5b48-40c9-980a-a8a4b8c1f1be",
+            "colId": "7fc61c07-43df-4331-a2a6-7f83ad39b516",
+            "containerId": "",
+            "name": "get Mascotas",
+            "url": "http://localhost:3000/api/mascotas",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-02-09T16:47:19.994Z",
+            "modified": "2024-02-09T16:53:54.767Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4c9efc56-f3e4-483a-bd59-d55f70139c6e",
+            "colId": "7fc61c07-43df-4331-a2a6-7f83ad39b516",
+            "containerId": "",
+            "name": "post Mascotas",
+            "url": "http://localhost:3000/api/mascotas",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-02-09T16:27:02.298Z",
+            "modified": "2024-02-09T16:53:46.701Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"golden\",\n  \"especie\": \"Pescado\",\n  \"raza\": \"Pez Dorado\",\n  \"edad\": 1\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "82b6d586-e6c8-4dd0-b442-ac091a4d3b7c",
+            "colId": "7fc61c07-43df-4331-a2a6-7f83ad39b516",
+            "containerId": "",
+            "name": "put Mascota",
+            "url": "http://localhost:3000/api/mascotas/65c6589a1a967a6d73840d3e",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-02-09T16:56:05.157Z",
+            "modified": "2024-02-09T16:59:13.797Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"Manolito\",\n  \"especie\": \"gato\",\n  \"raza\": \"angora\",\n  \"edad\": 3\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "3b439c1c-ac84-4964-88bb-b9b3ea5e892f",
+            "colId": "7fc61c07-43df-4331-a2a6-7f83ad39b516",
+            "containerId": "",
+            "name": "delete Mascota",
+            "url": "http://localhost:3000/api/mascotas/65c658101a967a6d73840d32",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-02-09T17:00:58.701Z",
+            "modified": "2024-02-09T17:03:42.507Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

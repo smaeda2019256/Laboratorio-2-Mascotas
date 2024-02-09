@@ -8,7 +8,8 @@ class Server{
         this.app = express();
         this.port = process.env.PORT;  
         this.usuariosPath = '/api/usuarios';
-        this.mascotaPath = '/api/mascotas'     
+        this.mascotaPath = '/api/mascotas';
+        this.logPath = '/api/log';  
         this.conetarDB();
         this.middlewares();
         this.routes();
@@ -27,6 +28,7 @@ class Server{
     routes(){
         this.app.use(this.usuariosPath, require('../routes/user.routes'));
         this.app.use(this.mascotaPath, require('../routes/mascota.routes'));
+        this.app.use(this.logPath, require('../routes/login.routes') )
     }
 
     listen(){

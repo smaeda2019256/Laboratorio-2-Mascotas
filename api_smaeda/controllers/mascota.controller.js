@@ -39,9 +39,31 @@ const putMascotas =  async (req, res = response) =>{
     });
 }
 
+const mascotasDelete = async (req, res) => {
+    const { id } = req.params;
+    const mascota = await Mascota.findByIdAndUpdate(id, {estado: false});
+
+    res.status(200).json({
+        msg: 'Mascota Eliminada Exitosamente!',
+        animal
+    });
+}
+
+const mascotasPost = async (req, res) => {
+    const{nombre, especie, raza, edad } = req.body;
+    const mascota = new Mascota ({ nombre, especie, raza, edad});
+
+    await mascota.save();
+    res.status(200).json({
+        mascota
+    });
+}
+
 module.exports = {
+    mascotasPost,
     mascotasGet,
     getMascotaById,
-    putMascotas
+    putMascotas,
+    mascotasDelete
 }
 

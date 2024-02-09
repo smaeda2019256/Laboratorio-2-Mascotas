@@ -13,6 +13,10 @@ const MascotaSchema = Schema({
         type: String,
         required: [true, 'La raza de la mascota es obligatoria']
     },
+    edad:{
+        type: Number,
+        required: [true, 'La edad de la Mascota es obligatoria']
+    },
     estado:{
         type: Boolean,
         default: true

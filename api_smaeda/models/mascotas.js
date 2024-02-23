@@ -1,26 +1,30 @@
-const { Schema, model } = require('mongoose');
+const {Schema, model} = require('mongoose');
 
-const MascotaSchema = Schema({
-    nombre:{
-        type: String, 
-        required: [true, 'El nombre de la mascota es obligatorio']
-    },
-    especie:{
+const MascotaSchema = Schema ({
+    tipo: {
         type: String,
-        required: [true, 'La especie de la Mascota es obligatoria']
+        required: [true, 'El tipo es obligatorio']
     },
-    raza:{
+    raza: {
         type: String,
-        required: [true, 'La raza de la mascota es obligatoria']
+        required: [true, 'La raza es obligatorio']
     },
-    edad:{
-        type: Number,
-        required: [true, 'La edad de la Mascota es obligatoria']
+    color: {
+        type: String,
+        required: [true, 'El color es obligatorio']
+    },
+    edad: {
+        type: String,
+        required: [true, 'La edad es obligatoria']
+    },
+    situacion: {
+        type: String,
+        required: [true, 'La situacion es obligatoria']
     },
     estado:{
         type: Boolean,
         default: true
-    }
+    },
 });
 
-module.exports = model('mascota', MascotaSchema);
+module.exports = model('Mascota', MascotaSchema);

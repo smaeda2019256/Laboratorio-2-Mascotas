@@ -1,5 +1,5 @@
 {
-  "name": "api_sebastiano2022017",
+  "name": "api_smaeda",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,15 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "Sebastian Istacuy",
+  "author": "Santiago Maeda",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.1",
+    "dotenv": "^16.4.4",
     "express": "^4.18.2",
     "express-validator": "^7.0.1",
-    "mongoose": "^8.1.1"
+    "kill-port": "^2.0.1",
+    "mongoose": "^8.1.3"
   }
 }

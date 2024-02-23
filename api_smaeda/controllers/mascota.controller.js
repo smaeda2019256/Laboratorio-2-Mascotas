@@ -1,57 +1,64 @@
-const { response } = require('express');
-const Mascota = require('../models/mascotas')
+const { response, json } = require('express');
+const bcryptjs = require('bcryptjs');
+const Mascota = require('../models/mascotas');
 
-const mascotasGet = async (req, res = response) => {
-    const {limite, desde } = req.query;
+const mascotasGet = async (req, res = response ) => {
+    const { limite, desde } = req.query;
     const query = { estado: true};
 
     const [total, mascotas] = await Promise.all([
         Mascota.countDocuments(query),
         Mascota.find(query)
-            .skip(Number(desde))
-            .limit(Number(limite))
+        .skip(Number(desde))
+        .limit(Number(limite))
     ]);
 
     res.status(200).json({
-        total, 
+        total,
         mascotas
     });
-}
+} 
 
-const getMascotaById = async (req, res) => {
+const getMascotaByid = async (req, res) => {
     const { id } = req.params;
-    const mascota = await Mascota.findOne({ _id: id});
+    const mascota = await Mascota.findOne({_id: id});
 
     res.status(200).json({
         mascota
     });
 }
 
-const putMascotas =  async (req, res = response) =>{
+const mascotasPut = async (req, res) => {
     const { id } = req.params;
-    const { _id, ...resto } = req.body;
+    const { _id, tipo, raza, color, ...resto} = req.body;
 
-    const mascota = await Mascota.findByIdAndUpdate(id, resto);
+    await Mascota.findByIdAndUpdate(id, resto);
+
+    const mascota = await Mascota.findOne({_id: id});
 
     res.status(200).json({
-        msg: 'Mascota Actualizada Exitosamente!',
+        msg: 'Mascota Actualizada exitosamente',
         mascota
-    });
+    })
 }
 
 const mascotasDelete = async (req, res) => {
-    const { id } = req.params;
-    const mascota = await Mascota.findByIdAndUpdate(id, {estado: false});
+    const {id} = req.params;
+    await Mascota.findByIdAndUpdate(id,{estado: false});
+
+    const mascota = await Mascota.findOne({_id: id});
 
     res.status(200).json({
-        msg: 'Mascota Eliminada Exitosamente!',
+        msg: 'Mascota eliminada exitosamente',
         mascota
     });
 }
 
-const mascotasPost = async (req, res) => {
-    const{nombre, especie, raza, edad } = req.body;
-    const mascota = new Mascota ({ nombre, especie, raza, edad});
+const mascotasPost = async (req, res) =>{
+    const { tipo, raza, color, edad, situacion } = req.body;
+    const mascota = new Mascota({tipo, raza, color, edad, situacion});
+
+    const salt = bcryptjs.genSaltSync();
 
     await mascota.save();
     res.status(200).json({
@@ -59,11 +66,11 @@ const mascotasPost = async (req, res) => {
     });
 }
 
+
 module.exports = {
-    mascotasPost,
     mascotasGet,
-    getMascotaById,
-    putMascotas,
+    getMascotaByid,
+    mascotasPost,
+    mascotasPut,
     mascotasDelete
 }
-

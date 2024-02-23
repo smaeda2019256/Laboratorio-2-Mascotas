@@ -1,4 +1,4 @@
-const Usuario = require('../models/usuario')
+/*const Usuario = require('../models/usuario')
 const { Router } = require('express');
 const router = Router();
 
@@ -32,4 +32,4 @@ router.post(
     }
 )
 
-module.exports = router;
+module.exports = router;*/

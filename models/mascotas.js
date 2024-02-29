@@ -24,7 +24,8 @@ const MascotaSchema = Schema ({
     estado:{
         type: Boolean,
         default: true
-    },
+    }
+
 });
 
 module.exports = model('Mascota', MascotaSchema);
